@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UrlShortner.API</name>
+    </assembly>
+    <members>
+        <member name="M:UrlShortner.API.Controllers.HealthController.Ping">
+            <summary>
+            Ensures the service is up and running!
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UrlShortner.API.Controllers.UrlController.Shorten(System.String)">
+            <summary>
+            Converts full url into short url.
+            </summary>
+            <param name="url">Full url</param>
+            <returns>Short url code/hash</returns>
+        </member>
+        <member name="M:UrlShortner.API.Controllers.UrlController.Inflate(System.String)">
+            <summary>
+            Converts the shortUrl back to original full url
+            </summary>
+            <param name="shortUrl">Short Url Code/Hash</param>
+            <returns>Full url</returns>
+        </member>
+    </members>
+</doc>

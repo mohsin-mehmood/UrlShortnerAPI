@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace UrlShortner.API.Controllers
 {
@@ -11,6 +6,10 @@ namespace UrlShortner.API.Controllers
     [ApiController]
     public class HealthController : ControllerBase
     {
+        /// <summary>
+        /// Ensures the service is up and running!
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Route("ping")]
         public IActionResult Ping()
