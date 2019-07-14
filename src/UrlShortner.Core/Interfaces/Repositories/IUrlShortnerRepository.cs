@@ -6,7 +6,7 @@ namespace UrlShortner.Core.Interfaces.Repositories
 {
     public interface IUrlShortnerRepository
     {
-        Task<string> AddShortenedUrlAsync(ShortenedUrl newShortenedUrl);
+        Task<ShortenedUrl> AddShortenedUrlAsync(ShortenedUrl newShortenedUrl);
 
         Task<ShortenedUrl> LookupByUrlAsync(string url);
 

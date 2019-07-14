@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UrlShortner.Infrastructure"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlShortner.API.Tests", "tests\UrlShortner.API.Tests\UrlShortner.API.Tests.csproj", "{F5D96BD3-EF65-4D78-91AF-BD9529978CA6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlShortner.Core.Tests", "tests\UrlShortner.Core.Tests\UrlShortner.Core.Tests.csproj", "{2302A6EF-139B-4552-99A7-3D1B1E1A86C3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{2BD43898-DB16-436D-9A2C-3746EC714152}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,9 +37,17 @@ Global
 		{F5D96BD3-EF65-4D78-91AF-BD9529978CA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5D96BD3-EF65-4D78-91AF-BD9529978CA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5D96BD3-EF65-4D78-91AF-BD9529978CA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2302A6EF-139B-4552-99A7-3D1B1E1A86C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2302A6EF-139B-4552-99A7-3D1B1E1A86C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2302A6EF-139B-4552-99A7-3D1B1E1A86C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2302A6EF-139B-4552-99A7-3D1B1E1A86C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F5D96BD3-EF65-4D78-91AF-BD9529978CA6} = {2BD43898-DB16-436D-9A2C-3746EC714152}
+		{2302A6EF-139B-4552-99A7-3D1B1E1A86C3} = {2BD43898-DB16-436D-9A2C-3746EC714152}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {52A93561-946F-435E-ABFC-812D05FFFC18}

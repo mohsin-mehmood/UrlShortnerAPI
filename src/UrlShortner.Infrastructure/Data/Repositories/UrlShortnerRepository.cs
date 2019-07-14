@@ -16,12 +16,12 @@ namespace UrlShortner.Infrastructure.Data.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task<string> AddShortenedUrlAsync(ShortenedUrl newShortenedUrl)
+        public async Task<ShortenedUrl> AddShortenedUrlAsync(ShortenedUrl newShortenedUrl)
         {
             _dbContext.ShortenedUrls.Add(newShortenedUrl);
             await _dbContext.SaveChangesAsync();
 
-            return newShortenedUrl.UrlHash;
+            return newShortenedUrl;
         }
 
         public async Task<ShortenedUrl> LookupByHashAsync(string urlHash)

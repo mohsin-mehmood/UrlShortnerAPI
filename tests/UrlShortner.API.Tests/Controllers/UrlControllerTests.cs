@@ -5,6 +5,7 @@ using NUnit.Framework;
 using System.Threading.Tasks;
 using UrlShortner.API.Controllers;
 using UrlShortner.Core.Dto;
+using UrlShortner.Core.Entities;
 using UrlShortner.Core.Interfaces.Services;
 
 namespace UrlShortner.API.Tests.Controllers
@@ -126,12 +127,17 @@ namespace UrlShortner.API.Tests.Controllers
         public async Task Test_ShortenAction_ValidInputUrl()
         {
             // Setup
+            var inputUrl = "http://www.yahoo.com";
             var urlShortnerServiceMock = new Mock<IUrlShortnerService>();
             var mapperMock = new Mock<IMapper>();
             const string urlHash = "mJ";
 
             urlShortnerServiceMock.Setup(s => s.AddShortenedUrl(It.IsAny<string>()))
-                .Returns(Task.FromResult(urlHash));
+                .Returns(Task.FromResult(new ShortenedUrl
+                {
+                    Url = inputUrl,
+                    UrlHash = urlHash
+                }));
 
             // Action
             var urlController = new UrlController(urlShortnerServiceMock.Object, mapperMock.Object);
@@ -139,7 +145,7 @@ namespace UrlShortner.API.Tests.Controllers
 
             var result = await urlController.Shorten(new ShortenUrlRequest
             {
-                Url = "http://www.yahoo.com"
+                Url = inputUrl
             });
 
             // Assert

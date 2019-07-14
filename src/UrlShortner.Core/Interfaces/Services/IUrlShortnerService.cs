@@ -6,7 +6,7 @@ namespace UrlShortner.Core.Interfaces.Services
 {
     public interface IUrlShortnerService
     {
-        Task<string> AddShortenedUrl(string url);
+        Task<ShortenedUrl> AddShortenedUrl(string url);
 
         Task<IEnumerable<ShortenedUrl>> SearchByUrlAsync(string url);
 

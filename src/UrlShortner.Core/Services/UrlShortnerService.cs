@@ -24,14 +24,14 @@ namespace UrlShortner.Core.Services
         }
 
 
-        public async Task<string> AddShortenedUrl(string url)
+        public async Task<ShortenedUrl> AddShortenedUrl(string url)
         {
             // Check for existing url
             var urlInfo = await _urlShortnerRepository.LookupByUrlAsync(url);
 
             if (urlInfo != null)
             {
-                return urlInfo.UrlHash;
+                return urlInfo;
             }
 
             // Generate next UrlId

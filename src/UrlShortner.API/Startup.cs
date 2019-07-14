@@ -21,11 +21,12 @@ namespace UrlShortner.API
     {
         const string APIName = "URL Shortening API";
 
-        const string UniqueKeysStorageContainerName = "UrlShortnerContainer";
+        string UniqueKeysStorageContainerName;
 
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            UniqueKeysStorageContainerName = configuration["AppSettings:SnowMakerConfiguration:ContainerName"];
         }
 
         public IConfiguration Configuration { get; }
@@ -57,7 +58,7 @@ namespace UrlShortner.API
             // IOptimisticDataStore for SnowMaker
             .AddSingleton<IOptimisticDataStore>(sp =>
             {
-                var cloudStorageAccount = CloudStorageAccount.Parse(Configuration["AppSettings:SnowMakerBlobStorageConnection"]);
+                var cloudStorageAccount = CloudStorageAccount.Parse(Configuration["AppSettings:SnowMakerConfiguration:StorageAccountConnection"]);
 
                 // I know it is bad practice but as per my knowledge there is no support for async resolve option in Microsoft DI
                 return BlobOptimisticDataStore.CreateAsync(cloudStorageAccount, UniqueKeysStorageContainerName).Result;

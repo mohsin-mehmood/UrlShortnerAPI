@@ -37,7 +37,8 @@ namespace UrlShortner.API.Controllers
         {
             if (ModelState.IsValid)
             {
-                return Ok(await _urlShortnerService.AddShortenedUrl(shortenUrlRequest.Url));
+                var shortenedUrl = await _urlShortnerService.AddShortenedUrl(shortenUrlRequest.Url);
+                return Ok(shortenedUrl.UrlHash);
             }
 
             return BadRequest("Invalid Url");
