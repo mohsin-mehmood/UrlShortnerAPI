@@ -15,7 +15,6 @@ namespace UrlShortner.API.Controllers
 
         public UrlController(IUrlShortnerService urlShortnerService)
         {
-
             _urlShortnerService = urlShortnerService;
         }
 
