@@ -27,14 +27,20 @@ namespace UrlShortner.API.Controllers
         /// <summary>
         /// Converts full url into short url.
         /// </summary>
-        /// <param name="url">Full url</param>
+        /// <param name="shortenUrlRequest">Model holding the url to be shortened</param>
         /// <returns>Short url code/hash</returns>
         [HttpPost]
         [Route("[action]")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult> Shorten([FromBody] string url)
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult> Shorten([FromBody] ShortenUrlRequest shortenUrlRequest)
         {
-            return Ok(await _urlShortnerService.AddShortenedUrl(url));
+            if (ModelState.IsValid)
+            {
+                return Ok(await _urlShortnerService.AddShortenedUrl(shortenUrlRequest.Url));
+            }
+
+            return BadRequest("Invalid Url");
         }
 
         /// <summary>

@@ -10,19 +10,26 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:UrlShortner.API.Controllers.UrlController.Shorten(System.String)">
+        <member name="M:UrlShortner.API.Controllers.UrlController.Shorten(UrlShortner.Core.Dto.ShortenUrlRequest)">
             <summary>
             Converts full url into short url.
             </summary>
-            <param name="url">Full url</param>
+            <param name="shortenUrlRequest">Model holding the url to be shortened</param>
             <returns>Short url code/hash</returns>
         </member>
         <member name="M:UrlShortner.API.Controllers.UrlController.Inflate(System.String)">
             <summary>
             Converts the shortUrl back to original full url
             </summary>
-            <param name="shortUrl">Short Url Code/Hash</param>
+            <param name="urlHash">Url hash code/Hash</param>
             <returns>Full url</returns>
+        </member>
+        <member name="M:UrlShortner.API.Controllers.UrlController.SearchUrls(System.String)">
+            <summary>
+            Search for already stored urls info
+            </summary>
+            <param name="searchTerm"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>

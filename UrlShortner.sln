@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.421
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29025.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlShortner.API", "src\UrlShortner.API\UrlShortner.API.csproj", "{2DFD109B-28FB-4DA3-AB25-4A7F0D43870A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UrlShortner.API", "src\UrlShortner.API\UrlShortner.API.csproj", "{2DFD109B-28FB-4DA3-AB25-4A7F0D43870A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlShortner.Core", "src\UrlShortner.Core\UrlShortner.Core.csproj", "{48FF131F-BCFB-4DC9-B4CB-A4151B42F1C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UrlShortner.Core", "src\UrlShortner.Core\UrlShortner.Core.csproj", "{48FF131F-BCFB-4DC9-B4CB-A4151B42F1C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlShortner.Infrastructure", "src\UrlShortner.Infrastructure\UrlShortner.Infrastructure.csproj", "{505C4081-AA50-4566-B602-8AE306F93460}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UrlShortner.Infrastructure", "src\UrlShortner.Infrastructure\UrlShortner.Infrastructure.csproj", "{505C4081-AA50-4566-B602-8AE306F93460}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlShortner.API.Tests", "tests\UrlShortner.API.Tests\UrlShortner.API.Tests.csproj", "{F5D96BD3-EF65-4D78-91AF-BD9529978CA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{505C4081-AA50-4566-B602-8AE306F93460}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{505C4081-AA50-4566-B602-8AE306F93460}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{505C4081-AA50-4566-B602-8AE306F93460}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5D96BD3-EF65-4D78-91AF-BD9529978CA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5D96BD3-EF65-4D78-91AF-BD9529978CA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5D96BD3-EF65-4D78-91AF-BD9529978CA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5D96BD3-EF65-4D78-91AF-BD9529978CA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
