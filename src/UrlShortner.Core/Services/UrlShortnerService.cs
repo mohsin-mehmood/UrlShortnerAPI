@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using UrlShortner.Core.Dto;
 using UrlShortner.Core.Entities;
 using UrlShortner.Core.Interfaces.Providers;
 using UrlShortner.Core.Interfaces.Repositories;
@@ -61,9 +61,9 @@ namespace UrlShortner.Core.Services
             return null;
         }
 
-        public Task<ShortenedUrlResponse> LookupByUrl(string url)
+        public async Task<IEnumerable<ShortenedUrl>> SearchByUrlAsync(string url)
         {
-            throw new NotImplementedException();
+            return await _urlShortnerRepository.SearchByUrlAsync(url);
         }
     }
 }

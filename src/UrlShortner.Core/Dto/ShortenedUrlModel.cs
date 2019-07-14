@@ -1,6 +1,6 @@
 ﻿namespace UrlShortner.Core.Dto
 {
-    public class ShortenedUrlResponse
+    public class ShortenedUrlModel
     {
         public long UrlId { get; set; }
 

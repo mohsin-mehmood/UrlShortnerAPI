@@ -1,5 +1,6 @@
-﻿using System.Threading.Tasks;
-using UrlShortner.Core.Dto;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using UrlShortner.Core.Entities;
 
 namespace UrlShortner.Core.Interfaces.Services
 {
@@ -7,7 +8,7 @@ namespace UrlShortner.Core.Interfaces.Services
     {
         Task<string> AddShortenedUrl(string url);
 
-        Task<ShortenedUrlResponse> LookupByUrl(string url);
+        Task<IEnumerable<ShortenedUrl>> SearchByUrlAsync(string url);
 
         Task<string> InflateShortenedUrl(string urlHash);
     }

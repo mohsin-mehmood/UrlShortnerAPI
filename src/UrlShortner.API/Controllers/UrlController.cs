@@ -1,6 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using UrlShortner.Core.Dto;
 using UrlShortner.Core.Interfaces.Services;
 
 namespace UrlShortner.API.Controllers
@@ -12,10 +16,12 @@ namespace UrlShortner.API.Controllers
     public class UrlController : ControllerBase
     {
         private readonly IUrlShortnerService _urlShortnerService;
+        private readonly IMapper _mapper;
 
-        public UrlController(IUrlShortnerService urlShortnerService)
+        public UrlController(IUrlShortnerService urlShortnerService, IMapper mapper)
         {
             _urlShortnerService = urlShortnerService;
+            _mapper = mapper;
         }
 
         /// <summary>
@@ -34,15 +40,15 @@ namespace UrlShortner.API.Controllers
         /// <summary>
         /// Converts the shortUrl back to original full url
         /// </summary>
-        /// <param name="shortUrl">Short Url Code/Hash</param>
+        /// <param name="urlHash">Url hash code/Hash</param>
         /// <returns>Full url</returns>
         [HttpGet]
-        [Route("[action]/{shortUrl}")]
+        [Route("[action]/{urlHash}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult> Inflate([FromBody] string shortUrl)
+        public async Task<ActionResult> Inflate(string urlHash)
         {
-            var originalUrl = await _urlShortnerService.InflateShortenedUrl(shortUrl);
+            var originalUrl = await _urlShortnerService.InflateShortenedUrl(urlHash);
 
             if (!string.IsNullOrWhiteSpace(originalUrl))
             {
@@ -53,5 +59,29 @@ namespace UrlShortner.API.Controllers
                 return NotFound();
             }
         }
+
+        /// <summary>
+        /// Search for already stored urls info
+        /// </summary>
+        /// <param name="searchTerm"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("[action]")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<ActionResult> SearchUrls([FromBody] string searchTerm)
+        {
+            var searchResults = await _urlShortnerService.SearchByUrlAsync(searchTerm);
+
+            if (searchResults.Any())
+            {
+                return Ok(_mapper.Map<IEnumerable<ShortenedUrlModel>>(searchResults));
+            }
+            else
+            {
+                return NoContent();
+            }
+        }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using UrlShortner.Core.Entities;
 
 namespace UrlShortner.Core.Interfaces.Repositories
@@ -10,5 +11,7 @@ namespace UrlShortner.Core.Interfaces.Repositories
         Task<ShortenedUrl> LookupByUrlAsync(string url);
 
         Task<ShortenedUrl> LookupByHashAsync(string urlHash);
+
+        Task<IEnumerable<ShortenedUrl>> SearchByUrlAsync(string url);
     }
 }

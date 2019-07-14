@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using UrlShortner.Core.Entities;
 using UrlShortner.Core.Interfaces.Repositories;
@@ -57,6 +59,11 @@ namespace UrlShortner.Infrastructure.Data.Repositories
             }
 
             return null;
+        }
+
+        public async Task<IEnumerable<ShortenedUrl>> SearchByUrlAsync(string url)
+        {
+            return await _dbContext.ShortenedUrls.Where(u => u.Url.Contains(url)).ToListAsync();
         }
     }
 }
