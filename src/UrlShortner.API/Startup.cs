@@ -97,7 +97,7 @@ namespace UrlShortner.API
             app.UseSwaggerUI(s => s.SwaggerEndpoint("/swagger/v1/swagger.json", APIName));
 
 
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
             app.UseMvc();
         }
     }
