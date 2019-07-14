@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Serilog;
 using System;
 using UrlShortner.Infrastructure.Data;
 
@@ -20,8 +21,6 @@ namespace UrlShortner.API
                 {
                     var context = services.GetRequiredService<AppDBContext>();
                     DbInitializer.Initialize(context);
-
-
                 }
                 catch (Exception ex)
                 {
@@ -35,6 +34,8 @@ namespace UrlShortner.API
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+                .UseStartup<Startup>()
+                .UseSerilog((hostingContext, loggerConfiguration) => loggerConfiguration
+                    .ReadFrom.Configuration(hostingContext.Configuration));
     }
 }
