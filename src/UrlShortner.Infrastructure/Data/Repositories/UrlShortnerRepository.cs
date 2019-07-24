@@ -26,7 +26,7 @@ namespace UrlShortner.Infrastructure.Data.Repositories
 
         public async Task<ShortenedUrl> LookupByHashAsync(string urlHash)
         {
-            var urlInfo = await _dbContext.ShortenedUrls.FirstOrDefaultAsync(u => u.UrlHash.Equals(urlHash, StringComparison.InvariantCultureIgnoreCase));
+            var urlInfo = await _dbContext.ShortenedUrls.FirstOrDefaultAsync(u => u.UrlHash.Equals(urlHash, StringComparison.InvariantCulture));
 
             if (urlInfo != null)
             {
